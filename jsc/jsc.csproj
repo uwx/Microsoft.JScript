@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>net10.0</TargetFramework>
+        <AssemblyName>jsc</AssemblyName>
+        <RootNamespace>jsc</RootNamespace>
+        <OutputType>Exe</OutputType>
+        <!-- C# 14 turns "field" into a contextual keyword inside property accessors,
+         which breaks the decompiled code; keep the language version stable. -->
+        <LangVersion>12.0</LangVersion>
+        <Nullable>disable</Nullable>
+        <ImplicitUsings>disable</ImplicitUsings>
+        <GenerateAssemblyInfo>false</GenerateAssemblyInfo>
+        <GenerateDocumentationFile>false</GenerateDocumentationFile>
+        <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+        <EnableDefaultEmbeddedResourceItems>false</EnableDefaultEmbeddedResourceItems>
+        <EnableNETAnalyzers>false</EnableNETAnalyzers>
+        <!-- Warnings produced by faithful decompiled code (member hiding, NaN checks,
+         no-op IL sequences, and .NET Framework APIs that are obsolete on .NET Core). -->
+        <NoWarn>$(NoWarn);CS0108;CS0114;CS0162;CS0168;CS0169;CS0219;CS0414;CS0612;CS0618;CS0642;CS0649;CS0672;CS0809;CS1591;CS1717;CS1718;CS3021;SYSLIB0003;SYSLIB0004;SYSLIB0009;SYSLIB0010;SYSLIB0011;SYSLIB0012;SYSLIB0017;SYSLIB0018;SYSLIB0037;SYSLIB0044;SYSLIB0050;SYSLIB0051</NoWarn>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="jsc.resx" LogicalName="jsc.resources" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="System.CodeDom" Version="8.0.0" />
+        <PackageReference Include="System.Security.Permissions" Version="8.0.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <ProjectReference Include="..\Microsoft.JScript\Microsoft.JScript.csproj" />
+    </ItemGroup>
+
+</Project>
