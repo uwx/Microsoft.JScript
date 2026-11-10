@@ -104,23 +104,23 @@ jsc /out:app.exe part1.js part2.js
 | `/t[arget]:winexe` | Windows application (GUI subsystem) | Supported with a Windows Forms reference (see notes) |
 | `/t[arget]:library` | Library assembly (`.dll`) | Supported |
 | `/platform:<platform>` | `x86`, `Itanium`, `x64`, `anycpu` | Accepted; output stays IL-only "AnyCPU" (I386) |
-| `/autoref[+|-]` | Auto-reference assemblies from used namespaces | Supported (on by default) |
+| `/autoref[+\|-]` | Auto-reference assemblies from used namespaces | Supported (on by default) |
 | `/lib:<path>` | Additional reference search paths | Supported |
 | `/r[eference]:<list>` | Reference assemblies (`;`-separated names or paths) | Supported |
 | `/win32res:<file>` | Embed a Win32 `.res` file | Accepted, **not embedded** (no managed equivalent) |
 | `/res[ource]:<file>[,<name>[,public\|private]]` | Embed a managed `.resources` file | Supported |
 | `/linkres[ource]:<file>[,...]` | Link a resource file | Accepted, **not emitted** |
-| `/debug[+|-]` | Emit a portable `.pdb` next to the output | Supported |
-| `/fast[+|-]` | Disable language features for better codegen | Supported (on by default) |
-| `/warnaserror[+|-]` | Treat warnings as errors | Supported |
+| `/debug[+\|-]` | Emit a portable `.pdb` next to the output | Supported |
+| `/fast[+\|-]` | Disable language features for better codegen | Supported (on by default) |
+| `/warnaserror[+\|-]` | Treat warnings as errors | Supported |
 | `/w[arn]:<0-4>` | Warning level | Supported |
 | `/d[efine]:<symbols>` | Conditional compilation symbols (`NAME` or `NAME=VALUE`, `,`/`;` separated) | Supported |
 | `/codepage:<id>` | Source file code page | Supported |
 | `/lcid:<id>` | Compiler message locale | Supported |
-| `/nostdlib[+|-]` | Do not import the standard library | Supported |
-| `/utf8output[+|-]` | UTF-8 compiler output | Supported |
-| `/versionsafe[+|-]` | Version-safe binding | Supported |
-| `/print[+|-]` | Print assembly resolution details | Supported |
+| `/nostdlib[+\|-]` | Do not import the standard library | Supported |
+| `/utf8output[+\|-]` | UTF-8 compiler output | Supported |
+| `/versionsafe[+\|-]` | Version-safe binding | Supported |
+| `/print[+\|-]` | Print assembly resolution details | Supported |
 | `/nologo` | Suppress the banner | Supported |
 | `@<file>` | Response file | Supported |
 | `/?`, `/help` | Show help | Supported |
