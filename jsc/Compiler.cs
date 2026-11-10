@@ -7,12 +7,16 @@
 using System;
 using System.Reflection;
 using System.Security.Policy;
+using System.Text;
 
 #nullable disable
 internal class Compiler
 {
     public static int Main(string[] args)
     {
+        // .NET Core does not ship the legacy code pages (1252, 932, ...) by default;
+        // jsc maps /codepage and the ANSI code page through Encoding.GetEncoding.
+        Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         try
         {
             return new JScriptCompiler().Run(args);

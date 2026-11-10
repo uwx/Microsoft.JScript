@@ -257,9 +257,15 @@ namespace System.Reflection.Emit
                     portablePdbBuilder.FormatVersion);
             }
 
-            bool library = state == null || state.FileKind == System.CodeDom.Compiler.PEFileKinds.Dll;
-            PEHeaderBuilder header =
-                library ? PEHeaderBuilder.CreateLibraryHeader() : PEHeaderBuilder.CreateExecutableHeader();
+            PEHeaderBuilder header;
+            if (state == null || state.FileKind == System.CodeDom.Compiler.PEFileKinds.Dll)
+                header = PEHeaderBuilder.CreateLibraryHeader();
+            else if (state.FileKind == System.CodeDom.Compiler.PEFileKinds.WindowApplication)
+                header = new PEHeaderBuilder(
+                    imageCharacteristics: Characteristics.ExecutableImage,
+                    subsystem: Subsystem.WindowsGui);
+            else
+                header = PEHeaderBuilder.CreateExecutableHeader();
             ManagedPEBuilder peBuilder = new ManagedPEBuilder(
                 header: header,
                 metadataRootBuilder: new MetadataRootBuilder(metadata),
